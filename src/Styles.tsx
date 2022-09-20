@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/system';
 
 export const Themes = createTheme({
+
     palette: {
         primary: {
             dark: '#0E1323',
@@ -25,9 +26,9 @@ export const Main = {
     backgroundColor: Themes.palette.primary.dark,
     minHeight: '100vh'
 }
-export const MainGrid = {    
+export const MainGrid = {
     paddingInline: '1.5rem',
-    paddingBlock: '5rem',   
+    paddingBlock: '5rem',
 }
 export const HeaderGrid = {
     backgroundColor: Themes.palette.secondary.dark,
@@ -38,17 +39,38 @@ export const H1Container = {
     backgroundColor: Themes.palette.primary.midblue,
     borderRadius: '10px',
     display: 'flex',
-    flexDirection: 'row-reverse',
-    justifyContent: 'space-around',
-    alignItems: 'center',
     overflow: 'hidden',
     paddingBlock: '2rem',
+    flexDirection: {
+        xs: 'row-reverse',
+        md: 'column-reverse'
+    },
+    justifyContent: 'space-around',
+    alignItems: {
+        xs: 'center',
+        md: 'baseline'
+    },
+    paddingInline: {
+        md: '1rem',
+    },
+    gap: {
+        lg: '2rem'
+    },
+
 }
 export const Heading1 = {
-    fontSize: '1rem', color: Themes.palette.primary.offwhite
+    display: 'flex',
+    flexDirection: 'column',
+    fontSize: {
+        xs: '1rem',
+    },
+    color: Themes.palette.primary.offwhite
 }
 export const Heading1Span = {
-    fontSize: '1.5rem',
+    fontSize: {
+        xs: '1.5rem',
+        lg: '2.5rem'
+    },
     color: Themes.palette.primary.white
 }
 
@@ -56,8 +78,13 @@ export const ImageStyles = {
     display: 'block',
     width: '4rem',
     height: '4rem',
+    aspectRatio: '1',
     border: '4px solid white',
-    borderRadius: '50%'
+    borderRadius: '50%',
+    '@media(min-width: 1200px)': {
+        width: '4.875rem',
+        height: '4.875rem',
+    }
 }
 
 
