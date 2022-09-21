@@ -9,7 +9,10 @@ import { Button } from '@mui/material';
 import { css } from '@emotion/react';
 import Profile from './images/image-jeremy.png';
 import Ellipsis from './images/icon-ellipsis.svg';
-import { H1Container, HeaderGrid, Heading1, Heading1Span, MainGrid, ImageStyles, Themes as theme, Main } from './Styles';
+import {
+  H1Container, HeaderGrid, Heading1, Heading1Span, MainGrid,
+  ImageStyles, Themes as theme, Main, BtnStyles
+} from './Styles';
 import './App.css';
 
 function App() {
@@ -124,9 +127,10 @@ function App() {
         {/* grid first child  - heading section start*/}
         <Grid2 xs={12} md={3} sx={HeaderGrid} >
           <Box sx={H1Container}>
-            <Typography variant='h1' gutterBottom={true} align='left' sx={Heading1} fontFamily='Rubik'>
+            <Typography variant='h1'
+              gutterBottom={true} align='left' sx={Heading1} fontFamily='Rubik'>
               Report for
-              <Typography component={'span'} sx={Heading1Span}>Jeremy Robson </Typography>
+              <Typography component={'span'} sx={Heading1Span} fontFamily='Rubik' >Jeremy Robson </Typography>
             </Typography>
             <img css={css`${ImageStyles}`} src={Profile} alt="Jeremy Robson" />
           </Box>
@@ -134,41 +138,17 @@ function App() {
           <Stack direction={{ xs: 'row', md: 'column' }} spacing={2}
             justifyContent='center' paddingTop={'2rem'} paddingBottom={'2rem'}>
             <Button variant='text' size='small'
-              sx={{
-                textTransform: 'capitalize',
-                fontFamily: 'Rubic',
-                fontWeight: 400,
-                fontSize: '0.9375rem',
-                ":focus": {
-                  color: theme.palette.primary.white,
-                }
-              }}
+              sx={BtnStyles}
               onClick={() => handleClick('daily')}>
               Daily
             </Button>
             <Button variant='text' size='small'
-              sx={{
-                textTransform: 'capitalize',
-                fontFamily: 'Rubic',
-                fontWeight: 400,
-                fontSize: '0.9375rem',
-                ":focus": {
-                  color: theme.palette.primary.white,
-                }
-              }}
+              sx={BtnStyles}
               onClick={() => handleClick('weekly')}>
               Weekly
             </Button>
             <Button variant='text' size='small'
-              sx={{
-                textTransform: 'capitalize',
-                fontFamily: 'Rubic',
-                fontWeight: 400,
-                fontSize: '0.9375rem',
-                ":focus": {
-                  color: theme.palette.primary.white,
-                }
-              }}
+              sx={BtnStyles}
               onClick={() => handleClick('monthly')}>
               Monthly
             </Button>
@@ -213,7 +193,12 @@ function App() {
                       },
 
                     }}>
-                    <Typography variant='h2' sx={{ fontSize: '1.25rem', color: theme.palette.primary.white }}>{item.title}</Typography>
+                    <Typography variant='h2'
+                      sx={{
+                        fontSize: '1.25rem', 
+                        fontFamily: 'Rubik',
+                        color: theme.palette.primary.white
+                      }}>{item.title}</Typography>
                     <img src={Ellipsis} alt="" />
                   </Box>
                   <Box aria-live='polite'
@@ -236,6 +221,8 @@ function App() {
                           md: '2.5rem',
                           lg: '3.5rem'
                         },
+                        fontWeight: '300',
+                        fontFamily: 'Rubik',
                         color: theme.palette.primary.white
                       }} >
                       {item.currentDuration} {item.currentDuration === 0 || item.currentDuration > 1 ? 'hrs' : 'hr'}
@@ -244,6 +231,8 @@ function App() {
                       sx={{
                         marginBottom: 0,
                         fontSize: '0.9375rem',
+                        fontWeight: '400',
+                        fontFamily: 'Rubik',
                         color: theme.palette.primary.offwhite,
                       }}>
                       {item.previousDuration} {item.previousDuration === 0 || item.currentDuration > 1 ? 'hrs' : 'hr'} {item.term}

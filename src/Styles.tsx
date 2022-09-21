@@ -26,6 +26,18 @@ export const Main = {
     backgroundColor: Themes.palette.primary.dark,
     minHeight: '100vh'
 }
+export const BtnStyles = {
+    textTransform: 'capitalize',
+    fontSize: '1.125rem',
+    fontFamily: 'Rubik',
+    fontWeight: 400,    
+    color: Themes.palette.secondary.midblue,
+    lineHeight: '1',
+    ":focus": {
+        color: Themes.palette.primary.white,
+    }
+}
+
 export const MainGrid = {
     paddingInline: '1.5rem',
     paddingBlock: '5rem',
