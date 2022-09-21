@@ -120,6 +120,12 @@ export const DataHeadingWrapper = {
     }
 }
 
+export const DataGrid = {
+    alignContent: 'space-between',
+    paddingInline: { xs: 0, md: '1rem' },
+    paddingBlock: { md: 0 }
+}
+
 export const HeadingH2 = {
     fontSize: '1.25rem',
     fontFamily: 'Rubik',
