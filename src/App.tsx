@@ -5,16 +5,16 @@ import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Stack } from '@mui/material';
-import { Button } from '@mui/material';
 import { css } from '@emotion/react';
 import Profile from './images/image-jeremy.png';
 import Ellipsis from './images/icon-ellipsis.svg';
 import {
   H1Container, HeaderGrid, Heading1, Heading1Span, MainGrid,
-  ImageStyles, Themes as theme, Main, BtnStyles, DataContainer,
-  DataHeadingWrapper, HeadingH2, DurationTrackerWrapper, CurrentTime, PreviousTime
+  ImageStyles, Main, DataContainer, DataHeadingWrapper,
+  HeadingH2, DurationTrackerWrapper, CurrentTime, PreviousTime
 } from './Styles';
 import './App.css';
+import { Btn } from './components/ButtonComponent';
 
 function App() {
 
@@ -143,21 +143,9 @@ function App() {
             xs: 'row', md: 'column'
           }} spacing={2}
             justifyContent='center' paddingTop={'2rem'} paddingBottom={'2rem'}>
-            <Button variant='text' size='small'
-              sx={BtnStyles}
-              onClick={() => handleClick('daily')}>
-              Daily
-            </Button>
-            <Button variant='text' size='small'
-              sx={BtnStyles}
-              onClick={() => handleClick('weekly')}>
-              Weekly
-            </Button>
-            <Button variant='text' size='small'
-              sx={BtnStyles}
-              onClick={() => handleClick('monthly')}>
-              Monthly
-            </Button>
+            <Btn text='daily' clickHandler={() => handleClick('daily')} />
+            <Btn text='weekly' clickHandler={() => handleClick('weekly')} />
+            <Btn text='monthly' clickHandler={() => handleClick('monthly')} />
           </Stack>
         </Grid2>
         {/* grid first child  - heading section end */}
