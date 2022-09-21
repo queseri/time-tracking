@@ -30,10 +30,10 @@ export const BtnStyles = {
     textTransform: 'capitalize',
     fontSize: '1.125rem',
     fontFamily: 'Rubik',
-    fontWeight: 400,    
+    fontWeight: 400,
     color: Themes.palette.secondary.midblue,
     lineHeight: '1',
-    ":focus": {
+    ":focus, :hover": {
         color: Themes.palette.primary.white,
     }
 }
@@ -99,4 +99,62 @@ export const ImageStyles = {
     }
 }
 
+export const DataContainer = {
+    borderRadius: '15px',
+    position: 'relative',
+    zIndex: 1,
+    backgroundColor: Themes.palette.secondary.dark,
+    paddingInline: '1rem',
+    paddingBlock: {
+        xs: '1rem',
+        lg: '2.5rem'
+    }
+}
+
+export const DataHeadingWrapper = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: {
+        xs: 'center',
+        lg: 'flex-start'
+    }
+}
+
+export const HeadingH2 = {
+    fontSize: '1.25rem',
+    fontFamily: 'Rubik',
+    color: Themes.palette.primary.white
+}
+
+export const DurationTrackerWrapper = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: {
+        xs: 'center',
+        lg: 'flex-start'
+    },
+    padding: '0.5rem',
+    flexDirection: {
+        lg: 'column'
+    }
+}
+
+export const CurrentTime = {
+    fontSize: {
+        xs: '2rem',
+        md: '2.5rem',
+        lg: '3.5rem'
+    },
+    fontWeight: '300',
+    fontFamily: 'Rubik',
+    color: Themes.palette.primary.white
+}
+
+export const PreviousTime = {
+    marginBottom: 0,
+    fontSize: '0.9375rem',
+    fontWeight: '400',
+    fontFamily: 'Rubik',
+    color: Themes.palette.primary.offwhite,
+}
 

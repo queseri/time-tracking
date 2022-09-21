@@ -11,7 +11,8 @@ import Profile from './images/image-jeremy.png';
 import Ellipsis from './images/icon-ellipsis.svg';
 import {
   H1Container, HeaderGrid, Heading1, Heading1Span, MainGrid,
-  ImageStyles, Themes as theme, Main, BtnStyles
+  ImageStyles, Themes as theme, Main, BtnStyles, DataContainer,
+  DataHeadingWrapper, HeadingH2, DurationTrackerWrapper, CurrentTime, PreviousTime
 } from './Styles';
 import './App.css';
 
@@ -128,14 +129,19 @@ function App() {
         <Grid2 xs={12} md={3} sx={HeaderGrid} >
           <Box sx={H1Container}>
             <Typography variant='h1'
-              gutterBottom={true} align='left' sx={Heading1} fontFamily='Rubik'>
+              gutterBottom={true} align='left'
+              sx={Heading1} fontFamily='Rubik'>
               Report for
-              <Typography component={'span'} sx={Heading1Span} fontFamily='Rubik' >Jeremy Robson </Typography>
+              <Typography component={'span'}
+                sx={Heading1Span} fontFamily='Rubik' >Jeremy Robson
+              </Typography>
             </Typography>
             <img css={css`${ImageStyles}`} src={Profile} alt="Jeremy Robson" />
           </Box>
           {/*control buttons */}
-          <Stack direction={{ xs: 'row', md: 'column' }} spacing={2}
+          <Stack direction={{
+            xs: 'row', md: 'column'
+          }} spacing={2}
             justifyContent='center' paddingTop={'2rem'} paddingBottom={'2rem'}>
             <Button variant='text' size='small'
               sx={BtnStyles}
@@ -164,81 +170,34 @@ function App() {
           {targetData && targetData.length > 0 &&
             targetData.map((item) => <Grid2 key={item.title} xs={12} sm={6} lg={4} gap={2}
               sx={{ backgroundColor: 'inherit' }} >
+              {/*Card wrapper */}
               <Paper sx={{
                 backgroundColor: item.bg,
                 borderRadius: '15px'
               }}>
-                <Box css={css`display: flex; justify-content: flex-end; align-items: center;`}>
+                {/* Card first child with image */}
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                   <img src={item.img} alt="" css={css`max-height: 60px`} />
                 </Box>
-                <Box className="contentWrapper"
-                  sx={{
-                    borderRadius: '15px',
-                    position: 'relative',
-                    zIndex: 1,
-                    backgroundColor: theme.palette.secondary.dark,
-                    paddingInline: '1rem',
-                    paddingBlock: {
-                      xs: '1rem',
-                      lg: '2.5rem'
-                    }
-                  }}>
-                  <Box className='heading'
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: {
-                        xs: 'center',
-                        lg: 'flex-start'
-                      },
-
-                    }}>
+                {/* Card first child with image end*/}
+                {/* Card second child - data */}
+                <Box sx={DataContainer}>
+                  <Box sx={DataHeadingWrapper}>
                     <Typography variant='h2'
-                      sx={{
-                        fontSize: '1.25rem', 
-                        fontFamily: 'Rubik',
-                        color: theme.palette.primary.white
-                      }}>{item.title}</Typography>
+                      sx={HeadingH2}>{item.title}</Typography>
                     <img src={Ellipsis} alt="" />
                   </Box>
                   <Box aria-live='polite'
-                    sx={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: {
-                        xs: 'center',
-                        lg: 'flex-start'
-                      },
-                      padding: '0.5rem',
-                      flexDirection: {
-                        lg: 'column'
-                      }
-                    }}>
-                    <Typography paragraph className='current'
-                      sx={{
-                        fontSize: {
-                          xs: '2rem',
-                          md: '2.5rem',
-                          lg: '3.5rem'
-                        },
-                        fontWeight: '300',
-                        fontFamily: 'Rubik',
-                        color: theme.palette.primary.white
-                      }} >
+                    sx={DurationTrackerWrapper}>
+                    <Typography paragraph sx={CurrentTime} >
                       {item.currentDuration} {item.currentDuration === 0 || item.currentDuration > 1 ? 'hrs' : 'hr'}
                     </Typography>
-                    <Typography paragraph className='previous'
-                      sx={{
-                        marginBottom: 0,
-                        fontSize: '0.9375rem',
-                        fontWeight: '400',
-                        fontFamily: 'Rubik',
-                        color: theme.palette.primary.offwhite,
-                      }}>
+                    <Typography paragraph sx={PreviousTime}>
                       {item.previousDuration} {item.previousDuration === 0 || item.currentDuration > 1 ? 'hrs' : 'hr'} {item.term}
                     </Typography>
                   </Box>
                 </Box>
+                {/* Card second child - data - end*/}
               </Paper>
             </Grid2>)
           }
