@@ -73,12 +73,14 @@ export const H1Container = {
 export const Heading1 = {
     display: 'flex',
     flexDirection: 'column',
+    fontWeight: '300',
     fontSize: {
         xs: '1rem',
     },
     color: Themes.palette.primary.offwhite
 }
 export const Heading1Span = {
+    fontWeight: '300',
     fontSize: {
         xs: '1.5rem',
         lg: '2.5rem'
@@ -107,7 +109,7 @@ export const DataContainer = {
     paddingInline: '1rem',
     paddingBlock: {
         xs: '1rem',
-        lg: '2.5rem'
+        lg: '2rem, 1rem'
     }
 }
 
@@ -136,7 +138,7 @@ export const DurationTrackerWrapper = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: {
-        xs: 'center',
+        xs: 'baseline',
         lg: 'flex-start'
     },
     padding: '0.5rem',

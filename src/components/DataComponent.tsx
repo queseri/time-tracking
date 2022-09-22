@@ -8,19 +8,19 @@ function DataComponent(props: {
     currentDuration: number; title: string; src: string; previousDuration: number; term: string
 }) {
     return (
-        <Box sx={DataContainer}>
+        <Box sx={DataContainer} aria-live='polite' aria-atomic={true}>
             <Box sx={DataHeadingWrapper}>
                 <Typography variant='h2'
                     sx={HeadingH2}>{props.title}</Typography>
                 <img src={props.src} alt="" />
             </Box>
-            <Box aria-live='polite'
+            <Box
                 sx={DurationTrackerWrapper}>
                 <Typography paragraph sx={CurrentTime} >
-                    {props.currentDuration} {props.currentDuration === 0 || props.currentDuration > 1 ? 'hrs' : 'hr'}
+                    {props.currentDuration} {props.currentDuration === 0 || props.currentDuration > 1 ? <abbr>{`hrs`}</abbr> : <abbr>{`hr`}</abbr>}
                 </Typography>
                 <Typography paragraph sx={PreviousTime}>
-                    {props.previousDuration} {props.previousDuration === 0 || props.currentDuration > 1 ? 'hrs' : 'hr'} {props.term}
+                    {props.previousDuration} {props.previousDuration === 0 || props.currentDuration > 1 ? <abbr>{`hrs`}</abbr> : <abbr>{`hr`}</abbr>} {props.term}
                 </Typography>
             </Box>
         </Box>

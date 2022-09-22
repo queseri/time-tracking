@@ -27,10 +27,12 @@ function App() {
 
   const [targetData, setTargetData] = useState<TargetData[]>([])
 
+
   function handleClick(id: string) {
     console.log(id)
     console.log(data)
     if (id === 'monthly') {
+
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -47,6 +49,7 @@ function App() {
         }
       ))
       setTargetData(datum)
+
     } else if (id === "weekly") {
       const datum = data.map((item: {
         title: string;
@@ -143,7 +146,10 @@ function App() {
             targetData.map((item) => <Grid2 key={item.title} xs={12} sm={6} lg={4} gap={2}
               sx={{ backgroundColor: 'inherit' }} >
               {/*Card wrapper */}
-              <Paper sx={{ backgroundColor: item.bg, borderRadius: '15px' }}>
+              <Paper sx={{
+                backgroundColor: item.bg, borderRadius: '15px',
+                ":hover": { cursor: 'pointer', opacity: 0.5 }
+              }}>
                 {/* Card first child with image */}
                 <DataImage src={item.img} />
                 {/* Card first child with image end*/}
