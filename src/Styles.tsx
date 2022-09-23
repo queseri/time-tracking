@@ -102,7 +102,8 @@ export const ImageStyles = {
 }
 
 export const DataContainer = {
-    borderRadius: '15px',
+    borderTopLeftRadius: '15px',
+    borderTopRightRadius: '15px',
     position: 'relative',
     zIndex: 1,
     backgroundColor: Themes.palette.secondary.dark,

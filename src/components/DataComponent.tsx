@@ -20,7 +20,7 @@ function DataComponent(props: {
                     {props.currentDuration} {props.currentDuration === 0 || props.currentDuration > 1 ? <abbr>{`hrs`}</abbr> : <abbr>{`hr`}</abbr>}
                 </Typography>
                 <Typography paragraph sx={PreviousTime}>
-                    {props.previousDuration} {props.previousDuration === 0 || props.currentDuration > 1 ? <abbr>{`hrs`}</abbr> : <abbr>{`hr`}</abbr>} {props.term}
+                {props.term} {` - `}   {props.previousDuration} {props.previousDuration === 0 || props.currentDuration > 1 ? <abbr>{`hrs`}</abbr> : <abbr>{`hr`}</abbr>}
                 </Typography>
             </Box>
         </Box>

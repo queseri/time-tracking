@@ -27,12 +27,10 @@ function App() {
 
   const [targetData, setTargetData] = useState<TargetData[]>([])
 
-
   function handleClick(id: string) {
     console.log(id)
     console.log(data)
     if (id === 'monthly') {
-
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -70,7 +68,8 @@ function App() {
     } else {
       const datum = data.map((item: {
         title: string;
-        img: string; bg: string;
+        img: string;
+        bg: string;
         timeframes: { daily: { current: number; previous: number; }; };
       }) => (
         {
@@ -147,7 +146,7 @@ function App() {
               sx={{ backgroundColor: 'inherit' }} >
               {/*Card wrapper */}
               <Paper sx={{
-                backgroundColor: item.bg, borderRadius: '15px',
+                backgroundColor: item.bg, borderRadius: '15px', overflow: 'hidden',
                 ":hover": { cursor: 'pointer', opacity: 0.5 }
               }}>
                 {/* Card first child with image */}
