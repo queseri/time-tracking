@@ -12,7 +12,7 @@ function DataComponent(props: {
             <Box sx={DataHeadingWrapper}>
                 <Typography variant='h2'
                     sx={HeadingH2}>{props.title}</Typography>
-                <img src={props.src} width='21px' height='5px' alt="" />
+                <img src={props.src} width='21' height='5' alt="" />
             </Box>
             <Box
                 sx={DurationTrackerWrapper}>
