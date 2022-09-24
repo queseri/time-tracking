@@ -154,6 +154,7 @@ function App() {
           <Heading src={Profile} />
           {/*control buttons start */}
           <Stack direction={{ xs: 'row', md: 'column' }} spacing={2}
+            aria-controls="time-id"
             justifyContent='center' paddingTop={'2rem'} paddingBottom={'2rem'}>
             <Btn text='daily' active={buttonState.daily} clickHandler={() => handleClick('daily')} />
             <Btn text='weekly' active={buttonState.weekly} clickHandler={() => handleClick('weekly')} />
@@ -164,7 +165,7 @@ function App() {
         {/* grid first child  - heading section end */}
 
         {/* grid second child  - heading section start */}
-        <Grid2 container xs={12} md={9} sx={DataGrid} >
+        <Grid2 container xs={12} md={9} sx={DataGrid} aria-live='polite' aria-atomic={true} role='region' id='time-id' >
           {targetData && targetData.length > 0 &&
             targetData.map((item) => <Grid2 key={item.title} xs={12} sm={6} lg={4} gap={2}
               sx={{ backgroundColor: 'inherit' }} >

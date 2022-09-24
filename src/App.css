@@ -6,3 +6,8 @@ body {
 button.active {
   color: white;
 }
+
+abbr[title],
+acronym[title] {
+  text-decoration: none;
+}

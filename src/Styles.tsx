@@ -118,8 +118,7 @@ export const DataHeadingWrapper = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: {
-        xs: 'center',
-        lg: 'flex-start'
+        xs: 'center',       
     }
 }
 
