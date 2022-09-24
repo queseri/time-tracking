@@ -16,6 +16,12 @@ import Heading from './components/Heading';
 function App() {
 
   const [data, setData] = useState([] as any[]);
+  const initState = {
+    daily: true,
+    weekly: false,
+    monthly: false
+  }
+  const [buttonState, setButtonState] = useState(initState)
   interface TargetData {
     title: string,
     img: string;
@@ -31,6 +37,12 @@ function App() {
     console.log(id)
     console.log(data)
     if (id === 'monthly') {
+      setButtonState({
+        weekly: false,
+        monthly: true,
+        daily: false
+      })
+      console.log(buttonState)
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -49,6 +61,12 @@ function App() {
       setTargetData(datum)
 
     } else if (id === "weekly") {
+      setButtonState({
+        weekly: true,
+        monthly: false,
+        daily: false
+      })
+      console.log(buttonState)
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -66,6 +84,12 @@ function App() {
       ))
       setTargetData(datum)
     } else {
+      setButtonState({
+        weekly: false,
+        monthly: false,
+        daily: true
+      })
+      console.log(buttonState)
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -131,9 +155,9 @@ function App() {
           {/*control buttons start */}
           <Stack direction={{ xs: 'row', md: 'column' }} spacing={2}
             justifyContent='center' paddingTop={'2rem'} paddingBottom={'2rem'}>
-            <Btn text='daily' clickHandler={() => handleClick('daily')} />
-            <Btn text='weekly' clickHandler={() => handleClick('weekly')} />
-            <Btn text='monthly' clickHandler={() => handleClick('monthly')} />
+            <Btn text='daily' active={buttonState.daily} clickHandler={() => handleClick('daily')} />
+            <Btn text='weekly' active={buttonState.weekly} clickHandler={() => handleClick('weekly')} />
+            <Btn text='monthly' active={buttonState.monthly} clickHandler={() => handleClick('monthly')} />
           </Stack>
           {/*control buttons end */}
         </Grid2>
@@ -147,7 +171,7 @@ function App() {
               {/*Card wrapper */}
               <Paper sx={{
                 backgroundColor: item.bg, borderRadius: '15px', overflow: 'hidden',
-                ":hover": { cursor: 'pointer', opacity: 0.5 }
+                ":hover": { cursor: 'pointer', opacity: 0.8, }
               }}>
                 {/* Card first child with image */}
                 <DataImage src={item.img} />
