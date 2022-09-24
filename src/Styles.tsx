@@ -24,7 +24,10 @@ export const Themes = createTheme({
 })
 export const Main = {
     backgroundColor: Themes.palette.primary.dark,
-    minHeight: '100vh'
+    minHeight: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
 }
 export const BtnStyles = {
     textTransform: 'capitalize',
