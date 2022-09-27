@@ -34,15 +34,14 @@ function App() {
   const [targetData, setTargetData] = useState<TargetData[]>([])
 
   function handleClick(id: string) {
-    console.log(id)
-    console.log(data)
+   
     if (id === 'monthly') {
       setButtonState({
         weekly: false,
         monthly: true,
         daily: false
       })
-      console.log(buttonState)
+     
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -66,7 +65,7 @@ function App() {
         monthly: false,
         daily: false
       })
-      console.log(buttonState)
+     
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -89,7 +88,7 @@ function App() {
         monthly: false,
         daily: true
       })
-      console.log(buttonState)
+    
       const datum = data.map((item: {
         title: string;
         img: string;
@@ -115,7 +114,7 @@ function App() {
     try {
       const response = await fetch(url)
       const dataResponse = await response.json()
-      console.log(dataResponse)
+     
       setData(dataResponse)
       const datum = dataResponse.map((item: {
         title: string;
@@ -133,7 +132,7 @@ function App() {
         }
       ))
       setTargetData(datum)
-      console.log(datum)
+     
     } catch (error) {
       console.log(error)
     }

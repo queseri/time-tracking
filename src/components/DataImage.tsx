@@ -16,7 +16,7 @@ function DataImage(props: { src: string }) {
                 backgroundPosition: 'right',
             }
         }}>
-            {/*  <img src={props.src} alt="" css={css`max-height: 60px`} /> */}
+            
         </Box >
     )
 }
