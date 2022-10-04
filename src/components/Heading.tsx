@@ -14,7 +14,13 @@ function Heading(props: { src: string; }) {
                     sx={Heading1Span} fontFamily='Rubik' >Jeremy Robson
                 </Typography>
             </Typography>
-            <img css={css`${ImageStyles}`} src={props.src} alt="" loading='lazy' />
+            <img css={css`${ImageStyles}`}
+                src={props.src}
+                alt=""
+                width="234"
+                height="234"
+                decoding="sync"
+            />
         </Box>
     )
 }
